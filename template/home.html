@@ -1,0 +1,38 @@
+{% extends 'parent.html' %}
+
+{% block content %} 
+
+<div class="flex justify-between py-10">
+    <h2 class="text-3xl font-bold">Manage Record</h2>
+    <form action="" class="flex">
+        <input type="search" class=" border rounded px-3" name="search" placeholder="enter details to find">
+        <input type="submit" class="bg-teal-600 rounded px-3 py-2">
+    </form>
+    <a href="{% url 'insert' %}" class="text-white bg-teal-600 rounded px-3 py-2">Insert Data</a>
+</div>
+<table class="table">
+        <tr>
+            <th class="border border-slate-400 px-2 py-2 pl-12 pr-12">Id</th>
+            <th class="border border-slate-400 px-2 py-2 pl-12 pr-12">Name</th>
+            <th class="border border-slate-400 px-2 py-2 pl-12 pr-12">Email</th>
+            <th class="border border-slate-400 px-2 py-2 pl-12 pr-12">City</th>
+            <th class="border border-slate-400 px-2 py-2 pl-12 pr-12">Contact</th>
+            <th class="border border-slate-400 px-2 py-2 pl-12 pr-12">Action</th>
+        </tr>
+
+    {% for student in object_list  %}
+    <tr>
+        <td class="border border-slate-400 px-2 py-2 pl-16 pr-16 " >{{ student.id }}</td>
+        <td class="border border-slate-400 px-2 py-2 pl-16 pr-16 " >{{ student.name }}</td>
+        <td class="border border-slate-400 px-2 py-2 pl-16 pr-16 " >{{ student.email }}</td>
+        <td class="border border-slate-400 px-2 py-2 pl-16 pr-16 " >{{ student.city }}</td>
+        <td class="border border-slate-400 px-2 py-2 pl-16 pr-16 " >{{ student.contact }}</td>
+        <td class="border border-slate-400 px-2 py-2 pl-16 pr-16 " >
+            <a href="{% url 'delete' student.id %}" class="bg-red-500 hover:bg-red-800 rounded px-2 py-2 ">Delete</a>
+            <a href="{% url 'Edit' student.id %}" class="bg-blue-500 hover:bg-blue-800 rounded px-2 py-2">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}

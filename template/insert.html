@@ -1,0 +1,14 @@
+
+{% extends 'parent.html' %}
+{% load tailwind_filters %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="bg-teal-600 hover:bg-teal-800 w-full  py-2 text-white text-3xl ">
+</form>
+
+
+{% endblock content %}

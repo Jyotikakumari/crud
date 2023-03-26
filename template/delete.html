@@ -1,0 +1,7 @@
+<form action="" method="post">
+    {% csrf_token %}
+    <h2>Are you really want to delete</h2>
+
+    <input type="submit" value=" confirm">
+    <a href="{% url 'home' %}">Cancle</a>
+</form>
